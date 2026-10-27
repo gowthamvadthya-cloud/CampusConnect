@@ -4,3 +4,15 @@ dist/
 .env.*
 !.env.example
 *.log
+# CampusConnect backups
+api-backups/
+*.backup.js
+*.backup.jsx
+*.backup.css
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*service-account*.json
+*serviceAccount*.json
