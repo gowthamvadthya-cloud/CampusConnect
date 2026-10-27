@@ -1,2 +1,3 @@
-import {db,requireUser,method,adminOnly} from './_lib/firebase.js';
+﻿import {db,requireUser,method,adminOnly} from '../_lib/firebase.js';
 export default async function handler(req,res){if(!method(req,res,['GET']))return;const u=await requireUser(req,res);if(!u||!adminOnly(u,res))return;try{const s=await db.collection('reports').orderBy('createdAt','desc').limit(100).get();res.status(200).json(s.docs.map(d=>({id:d.id,...d.data()})))}catch(e){res.status(500).json({error:'Could not load reports.'})}}
+
